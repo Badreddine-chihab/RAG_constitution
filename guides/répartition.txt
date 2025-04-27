@@ -1,0 +1,106 @@
+📑 Répartition Finale des Tâches — Projet "Système Questions-Réponses Constitution"
+Membres : Badr, Hamet, Amine, Hanae
+
+🔵 Badr — Extraction + Système RAG (Génération) + Prototype React
+Missions principales :
+Extraction et préparation du texte
+
+Technologies : PyPDF2, pdfminer.six, re (expressions régulières)
+
+Extraire proprement la Constitution, nettoyer et segmenter par article/section.
+
+Objectif : Obtenir des morceaux de texte bien structurés et indexables.
+
+Développement du module de génération de réponses
+
+Technologies : OpenAI API, HuggingFace, prompt engineering
+
+Connecter le modèle de génération (LLM) aux documents récupérés.
+
+Ajouter des citations automatiques pour justifier les réponses.
+
+(Bonus si temps) : Développement d’une application React séparée
+
+Technologies : React, Axios, TailwindCSS
+
+Front-end moderne se connectant à l’API Streamlit ou FastAPI.
+
+Permet d’avoir une interface plus professionnelle pour une éventuelle démo publique.
+
+Astuces :
+Utiliser langchain pour simplifier l'appel du modèle LLM.
+
+Préparer une API simple en FastAPI si besoin pour brancher React proprement.
+
+🔵 Hamet — Embeddings + Moteur de Recherche
+Missions principales :
+Création des embeddings vectoriels
+
+Technologies : Sentence-Transformers, modèle all-MiniLM-L6-v2 ou legal-BERT
+
+Transformer les segments d'articles en vecteurs pour la recherche.
+
+Mise en place de la base de données vectorielle
+
+Technologies : FAISS, Pinecone
+
+Stocker les vecteurs, optimiser les recherches (cosine similarity).
+
+Développement du moteur de recherche sémantique
+
+Trouver les meilleurs articles correspondants aux questions posées.
+
+Astuces :
+Garder les chunks de 300-500 tokens pour de meilleurs résultats de similarité.
+
+Tester différents types d’index FAISS (IndexFlatL2, IVF).
+
+🟡 Amine — Développement Interface Streamlit + Rapport + Tests
+Missions principales :
+Développement de l'interface principale en Streamlit
+
+Technologies : Streamlit, Python
+
+Permettre à l'utilisateur de poser une question → recevoir réponse + source.
+
+Tests fonctionnels du système
+
+Préparer un ensemble varié de questions.
+
+Noter la précision, la pertinence et la rapidité des réponses.
+
+Rédaction du rapport final
+
+Technologies : Word, Google Docs
+
+Rédiger tout le rapport (basé sur le plan que je t’ai donné avant).
+
+Astuces :
+Utiliser st.cache_data pour améliorer la rapidité des réponses similaires.
+
+Créer un bel affichage pour les références/citations dans Streamlit.
+
+🟢 Hanae — Amélioration de l'Interface + Présentation + Optimisation
+Missions principales :
+Amélioration visuelle de l'interface Streamlit
+
+Ajouter des éléments comme historique de conversation, style des réponses.
+
+Rendre l'affichage des sources plus élégant.
+
+Création de la présentation finale du projet
+
+Technologies : Canva, PowerPoint
+
+Slides clairs : Contexte ➔ Solution ➔ Démonstration ➔ Résultats ➔ Conclusion.
+
+Implémentation de la mise en cache des réponses
+
+Technologies : SQLite, Streamlit @st.cache_data
+
+Cacher les résultats pour les questions fréquentes.
+
+Astuces :
+Ajouter un st.sidebar pour afficher l’historique utilisateur simplement.
+
+Faire une présentation de 8-10 slides maximum pour être fluide et clair.

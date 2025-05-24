@@ -176,7 +176,7 @@ def search(query, model, index, texts, metadata, top_k=5):
 
 # Improved RAG answer generation
 def generate_answer(query, results, api_key):
-    openai.api_key = api_key
+    openai.api_key = "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"
     
     # Build better context
     context_parts = []

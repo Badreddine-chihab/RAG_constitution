@@ -3,10 +3,13 @@ import os
 import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
 import openai
+import os
 
-#Load and Chunk the Legal Text 
+
+from dotenv import load_dotenv
+load_dotenv()
+
 def load_and_chunk_json(filepath, chunk_size=300):
     with open(filepath, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -91,15 +94,17 @@ def generate_answer(query, results, api_key):
     return response["choices"][0]["message"]["content"]
 
 
+#testing in terminal 
 
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     # Load and chunk data
     chunks, metadata = load_and_chunk_json(r"data\morocco_constitution_clean.json", chunk_size=300)
 
     # Evaluate different models
-    models = ["sentence-transformers/all-MiniLM-L6-v2", "sentence-transformers/all-mpnet-base-v2", "nlpaueb/legal-bert-base-uncased"]
+    models = ["sentence-transformers/all-MiniLM-L6-v2", "sentence-transformers/all-mpnet-base-v2", "nlpaueb/legal-bert-base-uncased"] #testing between thses 3 models
     chosen_model_name = models[1]  # Change to test others
-
+    #mpnet gave the best results in my tests
+    
     # Generate embeddings
     print(f"Using model: {chosen_model_name}")
     model = SentenceTransformer(chosen_model_name)
@@ -115,7 +120,8 @@ if __name__ == "__main__":
     for i, (text, meta) in enumerate(results):
         print(f"\nResult {i+1} - Source: {meta['source']}\n{text}")
 
-    openai_api_key = "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"
+    openai_api_key = os.getenv("OPENAI_API_KEY")
     answer = generate_answer(query, results, openai_api_key)
     print("\n🧠 Réponse Générée:\n", answer)
+    """
 

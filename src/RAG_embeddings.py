@@ -74,7 +74,7 @@ def generate_answer(query, results, api_key):
     openai.api_base = "https://openrouter.ai/api/v1"
 
     context = "\n".join([f"[{meta['source']}]: {txt}" for txt, meta in results])
-    prompt = f"""Tu es un assistant expert de la Constitution Marocaine.de facon professionelle ,  Utilise les extraits suivants pour répondre selon la langue utilisée dans la question :
+    prompt = f"""Tu es un assistant expert de la Constitution Marocaine.Si la réponse n'est pas présente dans la constitution ecris clairement que le document ne supporte pas cette question  .de facon professionelle ,  Utilise les extraits suivants pour répondre selon la langue utilisée dans la question :
 
 {context}
 

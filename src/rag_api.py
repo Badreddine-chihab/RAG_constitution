@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 import os
 from pathlib import Path
 
-api_key ="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" #routerapi because opeinai key is not free this one is used for deepseek
+api_key ="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" #routerapi because opeinai key is not free this one is used for deepseek
 print("Api runnnig :",api_key)
 app = FastAPI()
 

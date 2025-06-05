@@ -255,7 +255,7 @@ for q, a, art in session:
     <div style="display: flex; justify-content: flex-start; margin-bottom: 16px;">
         <div class="assistant-message">
             <b>Assistant :</b><br>{a}
-            {f'<div class="article-reference">{art}</div>' if art else ''}
+            {f'<div class="article-reference">{art[:250]} ...</div>' if art else ''}
         </div>
     </div>
     """, unsafe_allow_html=True)

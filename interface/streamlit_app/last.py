@@ -22,53 +22,182 @@ st.set_page_config(page_title="Assistant Constitutionnel ٱلْمَغْرِب", 
 st.markdown(
     """
     <style>
-    section[data-testid="stSidebar"] {
-        background-color: #5E0B2A;
-    }
-    input[type="text"] {
-        background-color: #fce5e2;
-        color: black;
-        border: 1px solid #cccccc;
-        padding: 10px;
-        border-radius: 8px;
-    }
-    ::placeholder {
-        color: black;
-        opacity: 1;
-    }
+    /* Main background and text */
     html, body, [data-testid="stAppViewContainer"], .stApp {
-        background-color: #fffce8;
+        background-color: #f8f9fa;
     }
-    header[data-testid="stHeader"] {
-        background-color: #fffce8!important;
+    .stChatMessage {
+        padding: 12px 16px;
     }
-    section[data-testid="stSidebar"] button {
-        background-color: white;
-        color: black;
-        border-radius: 8px;
+    
+    /* Sidebar styling */
+    section[data-testid="stSidebar"] {
+        background-color: #ffffff;
+        border-right: 1px solid #e0e0e0;
+    }
+    [data-testid="stSidebarNavItems"] {
+        padding-top: 20px;
+    }
+    
+    /* Input field */
+    .stTextInput input {
+        background-color: #ffffff;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .stTextInput input:focus {
+        border-color: #c1272d;
+        box-shadow: 0 0 0 2px rgba(193,39,45,0.2);
+    }
+    
+    /* Buttons */
+    .stButton>button {
+        background-color: #c1272d;
+        color: white;
+        border-radius: 12px;
         border: none;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .stButton>button:hover {
+        background-color: #a02026;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    
+    /* Suggestion buttons */
+    .stButton>button.suggestion {
+        background-color: #ffffff;
+        color: #006233;
+        border: 2px solid #006233;
+        margin-bottom: 8px;
+        width: 100%;
+        text-align: left;
+    }
+    .stButton>button.suggestion:hover {
+        background-color: #e8f5e9;
+        color: #006233;
+    }
+    
+    /* Sidebar buttons */
+    section[data-testid="stSidebar"] button {
+        background-color: #f8f9fa;
+        color: #333;
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
         padding: 8px 16px;
-        font-weight: bold;
-        transition: background-color 0.1s ease;
+        margin-bottom: 8px;
+        width: 100%;
+        text-align: left;
+        transition: all 0.2s ease;
     }
     section[data-testid="stSidebar"] button:hover {
-        background-color: #5E0B2A;
+        background-color: #e9ecef;
+        border-color: #c1272d;
+        color: #c1272d;
+    }
+    section[data-testid="stSidebar"] .active {
+        background-color: #c1272d;
+        color: white !important;
+    }
+    
+    /* Chat bubbles */
+    .user-message {
+        background-color: #c1272d;
         color: white;
+        border-radius: 18px 18px 4px 18px;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        max-width: 80%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .assistant-message {
+        background-color: #f1f8e9;
+        color: #333;
+        border-radius: 18px 18px 18px 4px;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        max-width: 80%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-left: 4px solid #006233;
+    }
+    .article-reference {
+        font-size: 12px;
+        color: #666;
+        margin-top: 8px;
+        font-style: italic;
+    }
+    
+    /* Header */
+    .header {
+        background: linear-gradient(135deg, #c1272d, #006233);
+        color: white;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 24px;
+        text-align: center;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
+# In your Streamlit app code (the first file you shared), look for this section:
 st.markdown(
-    "<h2 style='text-align: center; color:black'>Assistant Constitutionnel  ٱلْمَغْرِب  <sup style='color: red;'>MA</sup> 📜</h2>",
+    """
+    <style>
+    /* Main background and text */
+    html, body, [data-testid="stAppViewContainer"], .stApp {
+        background-color: #f8f9fa;
+    }
+    /* ... (other existing styles) ... */
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# ADD THE NEW STYLE RIGHT AFTER THE EXISTING STYLE BLOCK:
+st.markdown(
+    """
+    <style>
+    /* Text input improvements */
+    .stTextInput input {
+        color: black !important;
+        background-color: #ffffff !important;
+        border: 2px solid #c1272d !important;
+        border-radius: 12px !important;
+        padding: 12px !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+    .stTextInput input:focus {
+        box-shadow: 0 0 0 2px rgba(193,39,45,0.2) !important;
+        border-color: #c1272d !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <div class="header">
+        <h2 style="margin:0; color:white;">Assistant Constitutionnel <span style="color:#ffcc00">ٱلْمَغْرِب</span> <sup style="color: white;">MA</sup> 📜</h2>
+        <p style="margin:0; opacity:0.8;">Votre guide pour la Constitution Marocaine</p>
+    </div>
+    """,
     unsafe_allow_html=True
 )
 
 # -------------------- SIDEBAR ------------------------
-st.sidebar.title("💬 Conversations")
+st.sidebar.markdown("""
+<div style="padding-bottom: 20px; border-bottom: 1px solid #e0e0e0; margin-bottom: 20px;">
+    <h3 style="color: #c1272d; margin-bottom: 5px;">💬 Conversations</h3>
+</div>
+""", unsafe_allow_html=True)
 
-if st.sidebar.button("➕ Nouvelle conversation"):
+if st.sidebar.button("➕ Nouvelle conversation", key="new_chat"):
     st.session_state.sessions.append([])
     st.session_state.current_session = len(st.session_state.sessions) - 1
     st.session_state.suggestions_visible = True
@@ -76,13 +205,11 @@ if st.sidebar.button("➕ Nouvelle conversation"):
     st.rerun()
 
 for i, sess in enumerate(st.session_state.sessions):
-    summary = sess[0][0] if sess else "Conversation vide"
-    if i == st.session_state.current_session:
-        st.sidebar.markdown(f"**> Conversation {i+1}: {summary[:30]}...**")
-    else:
-        if st.sidebar.button(f"Conversation {i+1}: {summary[:30]}..."):
-            st.session_state.current_session = i
-            st.rerun()
+    summary = sess[0][0] if sess else "Nouvelle conversation"
+    btn_class = "active" if i == st.session_state.current_session else ""
+    if st.sidebar.button(f"🗨️ {summary[:30]}...", key=f"conv_{i}"):
+        st.session_state.current_session = i
+        st.rerun()
 
 # -------------------- BACKEND API ------------------------
 def get_answer_from_api(question):
@@ -94,15 +221,16 @@ def get_answer_from_api(question):
 
 # -------------------- SUGGESTIONS ------------------------
 suggestions = [
-    "What's the official language?",
-    "Who appoints the Head of Government?",
-    "What are the fundamental rights of citizens?"
+    "Quelle est la langue officielle?",
+    "Qui nomme le Chef du Gouvernement?",
+    "Quels sont les droits fondamentaux des citoyens?"
 ]
 
 if st.session_state.suggestions_visible:
-    st.markdown("<h3 style='color:black'>Suggestions 💡</h3>", unsafe_allow_html=True)
+    st.markdown("<h4 style='color:#006233; margin-bottom:12px;'>Suggestions 💡</h4>", unsafe_allow_html=True)
+    cols = st.columns(1)
     for question_text in suggestions:
-        if st.button(question_text, key=question_text):
+        if cols[0].button(question_text, key=question_text, type="secondary"):
             st.session_state.sessions[st.session_state.current_session].append(
                 (question_text, "💬 Génération de la réponse...", "")
             )
@@ -113,42 +241,31 @@ if st.session_state.suggestions_visible:
 # -------------------- CHAT DISPLAY ------------------------
 session = st.session_state.sessions[st.session_state.current_session]
 for q, a, art in session:
+    # User message
     st.markdown(f"""
-    <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
-        <div style="
-            background-color: #f65949;
-            color: #040404;
-            padding: 12px 16px;
-            border-radius: 12px 12px 12px 0;
-            max-width: 70%;
-            box-shadow: 1px 1px 6px rgba(0,0,0,0.1);">
-            <b>👤 Citoyen :</b><br>{q}
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 8px;">
+        <div class="user-message">
+            <b>Vous :</b><br>{q}
         </div>
     </div>
     """, unsafe_allow_html=True)
 
+    # Assistant message
     st.markdown(f"""
-    <div style="display: flex; justify-content: flex-end; margin-bottom: 25px;">
-        <div style="
-            background-color: #8cef8d;
-            color: #040404;
-            padding: 12px 16px;
-            border-radius: 12px 12px 0 12px;
-            max-width: 70%;
-            box-shadow: 1px 1px 6px rgba(0,0,0,0.1);">
-            <b>🤖 Assistant :</b><br>{a}
-            <div style="font-size: 12px; color: #777; margin-top: 5px;">{art}</div>
+    <div style="display: flex; justify-content: flex-start; margin-bottom: 16px;">
+        <div class="assistant-message">
+            <b>Assistant :</b><br>{a}
+            {f'<div class="article-reference">{art}</div>' if art else ''}
         </div>
     </div>
     """, unsafe_allow_html=True)
 
 # -------------------- QUESTION INPUT ------------------------
-
 if not st.session_state.just_clicked_suggestion:
-    question_input = st.text_input("", placeholder="Poser votre question ici...")
-    col1, col2, col3 = st.columns([6, 1, 1])
+    question_input = st.text_input("", placeholder="Poser votre question ici...", key="question_input")
+    _, col2, col3 = st.columns([6, 1, 1])
     with col3:
-        send = st.button("Envoyer")
+        send = st.button("Envoyer", type="primary")
 
     if send and question_input:
         st.session_state.sessions[st.session_state.current_session].append((question_input, "💬 Génération de la réponse...", ""))
@@ -158,7 +275,6 @@ else:
 
 # -------------------- GENERATE ANSWER ------------------------
 session = st.session_state.sessions[st.session_state.current_session]
-
 
 if session and session[-1][1] == "💬 Génération de la réponse...":
     time.sleep(1.5)

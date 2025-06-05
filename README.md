@@ -8,7 +8,7 @@ This project is a Retrieval-Augmented Generation (RAG) API built using FastAPI. 
 
 - Load and chunk articles from the Moroccan Constitution
 - Perform semantic search using FAISS and sentence-transformers
-- Generate contextual answers using OpenAI
+- Generate contextual answers using OPENROUTER API (free)
 - FastAPI backend for easy interaction
 - frontend interface with streamlit 
 
